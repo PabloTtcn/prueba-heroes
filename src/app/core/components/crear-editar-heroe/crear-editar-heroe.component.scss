@@ -1,0 +1,136 @@
+.crearEditarContainer{
+    width: 100%;
+    background-color: aliceblue;
+    height: 100%;
+}
+.headerContainer{
+    width: 90%;
+    font-size: 50px;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #8000ff, #f16a10);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    min-height: 100px;
+    overflow: hidden;
+    padding-top: 60px;
+    margin-left: 5%;
+    text-align: center;
+}
+.firstStep{
+    width: 100%;
+    display:flex;
+    margin-top: 5%;
+}
+
+.stepperContainer{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.firstInputContainer{
+    width: 50%;
+    text-align: center;
+}
+.firstInput{
+    width: 50%;
+    min-height: 100px;
+}
+.radioContainer{
+    text-align: center;
+    width: 50%;
+}
+.input{
+    background-color: aliceblue;
+}
+.secondStep{
+    width: 100%;
+    display:flex;
+    margin-top: 5%;
+}
+.secondInputContainer{
+    width: 50%;
+    text-align: center;
+}
+.seconddInput{
+    width: 50%;
+    min-height: 100px;
+}
+.dateContainer{
+    text-align: center;
+    width: 50%;
+}
+
+.botonSiguiente{
+    margin-left: 30%;
+    width: 40%;
+    font-size: 15px;
+    background-image: linear-gradient(to left, #8000ff, #f16a10);
+    min-height: 60px;
+    margin-bottom: 3%;
+    color: aliceblue !important; //hereda color de material en negro al ser un stepper
+    margin-top: 40px;
+  }
+.botonCrear:disabled {
+    background-color: lightgray; /* Fondo del botón deshabilitado */
+    cursor: not-allowed;         /* Cursor al pasar sobre el botón deshabilitado */
+    border: 1px solid darkgray;  /* Borde del botón deshabilitado */
+    background-image: none;
+  }
+.botonCrear{
+    margin-left: 30%;
+    width: 40%;
+    font-size: 15px;
+    background-image: linear-gradient(to left, #8000ff, #f16a10);
+    min-height: 60px;
+    margin-bottom: 3%;
+    color: aliceblue !important; //hereda color de material en negro al ser un stepper
+    margin-top: 60px;
+}
+
+.radioLabel{
+    font-size: large;
+}
+.datePicker{
+    width: 50%;
+    min-height: 100px;
+}
+.thirdStep{
+    width: 100%;
+    display:flex;
+    margin-top: 5%;
+}
+.imagen{
+    min-width: 9%;
+    max-width: 9%;
+    border: solid #555;
+    margin-right: 1%;
+}
+@media (max-width: 900px){
+    .headerContainer {
+        font-size: 30px;
+    }
+    .firstInput{
+        width: 100%;
+    }
+    .seconddInput{
+        width: 90%;
+    }
+    .datePicker{
+        width: 90%;
+    }
+}
+@media (max-width: 550px){
+    .headerContainer {
+        font-size: 15px;
+    }
+    .botonSiguiente{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .botonCrear{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+}

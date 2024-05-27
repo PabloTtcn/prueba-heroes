@@ -1,0 +1,71 @@
+<div class="crearEditarContainer">
+    <div class="headerContainer">
+        <span *ngIf="modoCrear">Super Página de Crear Superhéroes</span>
+        <span *ngIf="!modoCrear">Super Página de Editar Superhéroes</span>
+    </div>
+    <div class="stepperContainer">
+        <mat-stepper #stepper>
+            <mat-step [stepControl]="firstFormGroup" errorMessage="Error en primer paso">
+            <ng-template matStepLabel>Rellene super nombre y alineación</ng-template>
+            <form [formGroup]="firstFormGroup">
+                <div class="firstStep">
+                    <div class="firstInputContainer">
+                        <mat-form-field class="firstInput" >
+                        <mat-label>Super Nombre</mat-label>
+                        <input type="pattern"  matInput  placeholder="Super colega" formControlName="nombreControl" [errorStateMatcher]="matcher">
+                          @if (nombreControl.hasError('required')) {
+                            <mat-error>El super nombre es necesario</mat-error>
+                          }
+                        </mat-form-field>
+                    </div>
+                    <div class="radioContainer">
+                        <label class="radioLabel">Alineación moral: </label>
+                        <mat-radio-group formControlName="radioButtonControl">
+                            <mat-radio-button value="false">Héroe</mat-radio-button>
+                            <mat-radio-button value="true">Villano</mat-radio-button>
+                        </mat-radio-group>
+                        @if (radioButtonControl.hasError('required')) {
+                            <mat-error>La alineación es necesaria</mat-error>
+                          }
+                    </div>
+                </div>
+             <button class="botonSiguiente" mat-button matStepperNext>Siguiente</button>
+            </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" errorMessage="second error">
+                <ng-template matStepLabel>Rellene identidad y fecha de nacimiento</ng-template>
+                <form [formGroup]="secondFormGroup">
+                    <div class="secondStep">
+                        <div class="secondInputContainer">
+                            <mat-form-field class="seconddInput" >
+                            <mat-label>Identidad secreta </mat-label>
+                            <input type="pattern"  matInput  placeholder="María Sarmiento" formControlName="identidadControl">
+                            </mat-form-field>
+                        </div>
+                        <div class="radioContainer">
+                            <mat-form-field class="datePicker">
+                                <mat-label>Fecha de nacimiento</mat-label>
+                                <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" formControlName="fechaControl">
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                 <button class="botonSiguiente" mat-button matStepperNext>Siguiente</button>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="thirdFormGroup" errorMessage="thirdError">
+                <ng-template matStepLabel>Seleccione icono</ng-template>
+                <form [formGroup]="thirdFormGroup">
+                    <div class="thirdStep">
+                        <ng-container *ngFor="let ruta of rutasIconoLocal">
+                            <img  class="imagen"  mat-card-image  [src]="ruta.ruta" alt="Photo of a Hero" (click)="seleccion(ruta.id)" [ngStyle]="{'border-color': (ruta.seleccionado) ? 'red' :'' }">
+                        </ng-container>
+                    </div>
+                 <button *ngIf="modoCrear" class="botonCrear" mat-button matStepperNext (click)="crear()"  [disabled]="firstFormGroup.invalid">Crear</button>
+                 <button *ngIf="!modoCrear" class="botonCrear" mat-button matStepperNext (click)="editar()"  [disabled]="firstFormGroup.invalid">Editar</button>
+                </form>
+            </mat-step>
+        </mat-stepper>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+.noData{
+    background-color: coral;
+    width: 40%;
+    margin-left: 30%;
+    height: 5%;
+    text-align: center;
+}
+.dashboardContainer{
+    width: 100%;
+    background-color: aliceblue;
+    min-height: 100%;
+}
+.filtroContainer{
+    width: 100%;
+}
+.headerContainer{
+    width: 90%;
+    font-size: 50px;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #8000ff, #f16a10);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    min-height: 100px;
+    overflow: hidden;
+    padding-top: 60px;
+    margin-left: 5%;
+    text-align: center;
+}
+    
+
+.botonCrearContainer{
+    width: 100%;
+}
+.botonCrear{
+    margin-left: 30%;
+    width: 40%;
+    font-size: 20px;
+    background-image: linear-gradient(to left, #8000ff, #f16a10);
+    min-height: 80px;
+    margin-bottom: 3%;
+}
+@media (max-width: 800px){
+    .headerContainer {
+        font-size: 30px;
+    }
+  }

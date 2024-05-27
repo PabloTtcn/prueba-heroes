@@ -1,0 +1,17 @@
+<div class="dashboardContainer">
+    <div class="headerContainer">
+        Super Página de Superhéroes
+    </div>
+    <div class="filtroContainer">
+        <app-filtro (onFiltro)="onFiltro($event)" (onReinicio)="onReinicio($event)"></app-filtro>
+    </div>
+    <app-listado-heroe [heroesInput]="heroesInput"></app-listado-heroe>
+    <div *ngIf="this.heroesInput.length < 1">
+        <mat-card class="noData">
+            <mat-card-content>No hay superhéroes que coincidan con el superfiltro</mat-card-content>
+        </mat-card>
+    </div>
+    <div class="botonCrearContainer">
+        <button class="botonCrear" mat-raised-button color="primary"  routerLink="/crearEditarHeroe/{{0}}">Crear Nuevo Héroe</button>
+    </div>
+</div>

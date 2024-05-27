@@ -1,0 +1,11 @@
+
+<mat-grid-list   [cols]="cols" [rowHeight]="rowHeight" (window:resize)="onResize($event)" >
+    <ng-container *ngFor="let heroe of heroesLocal">
+        <mat-grid-tile *ngIf="!heroe.selected" class="tile" [rowspan]="1">
+            <app-heroe [heroe]="heroe" (onSeleccionadoChange)="handleSeleccionadoChange($event)"></app-heroe>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="heroe.selected" class="tile" [rowspan]="3">
+            <app-heroe [heroe]="heroe" (onSeleccionadoChange)="handleSeleccionadoChange($event)"></app-heroe>
+        </mat-grid-tile>
+    </ng-container>
+</mat-grid-list>

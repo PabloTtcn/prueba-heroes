@@ -1,0 +1,28 @@
+
+<mat-card class="example-card">
+    <mat-card-header (click)="seleccionar()">
+      <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': urlIcono}"></div>
+      <mat-card-title>{{heroe?.nombre | primeraMayus }}</mat-card-title>
+      <mat-card-subtitle>{{heroe?.villano === true ? 'Villano' : 'Héroe'}}</mat-card-subtitle>
+      <div class="iconoHolder">
+        <mat-icon class="iconoExpand" *ngIf="!seleccionado" aria-hidden="false"  fontIcon="expand_more"></mat-icon>
+        <mat-icon class="iconoExpand" *ngIf="seleccionado" aria-hidden="false"  fontIcon="expand_less"></mat-icon>
+      </div>
+    </mat-card-header >
+    <ng-container  *ngIf="seleccionado">
+      <img @fadeInOut *ngIf="!heroe?.villano" class="imagen"  mat-card-image src="assets/img/heroe.JPG" alt="Photo of a Hero">
+      <img @fadeInOut *ngIf="heroe?.villano" class="imagen"  mat-card-image src="assets/img/villano.JPG" alt="Photo of a Villain">
+      <mat-card-content @fadeInOut>
+        <mat-list>
+          <mat-list-item><strong>Indentidad secreta: </strong>{{heroe?.identidadSecreta}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><strong>Fecha de nacimiento: </strong>{{heroe?.fechaNacimiento}}</mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-card-content>
+      <mat-card-actions @fadeInOut>
+        <button class="botonEditar"   routerLink="/crearEditarHeroe/{{heroe?.id}}" mat-button>Editar</button>
+        <button class="botonEliminar" (click)="eliminarHeroe(observable)" mat-button>Borrar</button>
+      </mat-card-actions>
+    </ng-container>
+  </mat-card>
